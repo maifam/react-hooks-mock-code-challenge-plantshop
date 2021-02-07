@@ -9,7 +9,7 @@ function PlantCard({plantObj, deletePlant}) {
   }
 
   function handleDelete() {
-    fetch(`http://localhost:6001/${plantObj.id}`, {
+    fetch(`http://localhost:6001/plants/${plantObj.id}`, {
       method: "DELETE"
     })
     deletePlant(plantObj.id)

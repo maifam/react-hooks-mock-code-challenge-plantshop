@@ -17,7 +17,8 @@ function PlantPage() {
   }, [])
 
   const filteredPlants = plants.filter(plant => 
-    plant.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    plant.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   function handleAddPlant(newPlant){
     setPlants([...plants, newPlant])
@@ -27,7 +28,7 @@ function PlantPage() {
     const deletedPlant = plants.filter(plant => plant.id !== id)
     setPlants(deletedPlant)
   }
-  
+
   return (
     <main>
       <NewPlantForm onAddPlant={handleAddPlant}/>
