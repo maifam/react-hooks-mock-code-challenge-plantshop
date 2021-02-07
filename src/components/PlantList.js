@@ -1,10 +1,18 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+function PlantList({plants, onDeletePlant}) {
+
+  const plantToDisplay = plants.map(plant => {
+    return <PlantCard key={plant.id} plantObj={plant} deletePlant={onDeletePlant}/>
+  })
+
+ 
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <ul className="cards">{plantToDisplay}</ul>
   );
 }
 
 export default PlantList;
+
+// name={plant.name} image={plant.image} price={plant.price}

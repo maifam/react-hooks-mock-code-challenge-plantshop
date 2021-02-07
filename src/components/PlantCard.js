@@ -1,16 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 
-function PlantCard() {
+function PlantCard({plantObj, deletePlant}) {
+
+  const [inStock, setInStock] = useState(true)
+
+  function handleStockChange(){
+    setInStock(inStock => !inStock)
+  }
+
+  function handleDelete() {
+    fetch(`http://localhost:6001/${plantObj.id}`, {
+      method: "DELETE"
+    })
+    deletePlant(plantObj.id)
+  }
+
   return (
     <li className="card">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
+      <img src={plantObj.image} alt={plantObj.name} />
+      <h4>{plantObj.name}</h4>
+      <p>Price: {plantObj.price}</p>
+      {inStock ? (
+        <button onClick={handleStockChange} className="primary">In Stock</button>
       ) : (
-        <button>Out of Stock</button>
+        <button onClick={handleStockChange}>Out of Stock</button>
       )}
+      <button onClick={handleDelete}>Remove Plant</button>
     </li>
   );
 }

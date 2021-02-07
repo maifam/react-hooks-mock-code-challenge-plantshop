@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Bonsai",
+      "image": "https://www.easternleaf.com/v/vspfiles/photos/800560-03-2T.jpg?v-cache=1572339364",
+      "price": 40,
+      "id": 8
     }
   ]
 }
